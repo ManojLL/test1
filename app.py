@@ -15,7 +15,7 @@ def translateLetters():
         image = request.files["image"]
         image_name = image.filename
         image.save(os.path.join(os.getcwd(), image_name))
-        if filetype.is_image(os.path.join(input_data, image_name)):
+        if filetype.is_image(os.path.join(os.getcwd(), image_name)):
 
             result = {'letter': [1,2,3,4,5]}
             response = make_response(result,True,200)
