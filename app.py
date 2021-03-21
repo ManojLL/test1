@@ -14,12 +14,12 @@ def translateLetters():
     try:
         image = request.files["image"]
         image_name = image.filename
-        image.save(os.path.join(input_data, image_name))
+        image.save(os.path.join(os.getcwd(), image_name))
         if filetype.is_image(os.path.join(input_data, image_name)):
 
             result = {'letter': [1,2,3,4,5]}
             response = make_response(result,True,200)
-            os.remove(os.path.join(input_data, image_name))
+            os.remove(os.path.join(os.getcwd(), image_name))
             return Response(response=response, status=200, mimetype='application/json')
         else:
             response = make_response('The file is NOT an Image', False, 200)
