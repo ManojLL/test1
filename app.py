@@ -6,7 +6,7 @@ from util import make_response
 
 app = Flask(__name__)
 
-input_data = "input_data"
+input_data = "template"
 pre_process_data = "pre_process_data"
 
 @app.route("/api/getLetters", methods=["POST"])
@@ -14,7 +14,7 @@ def translateLetters():
     try:
         image = request.files["image"]
         image_name = image.filename
-        image.save(os.getcwd().join(input_data, image_name))
+        image.save(os.path.join(input_data, image_name))
         if filetype.is_image(os.path.join(input_data, image_name)):
 
             result = {'letter': [1,2,3,4,5]}
