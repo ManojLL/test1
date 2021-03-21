@@ -6,7 +6,7 @@ from util import make_response
 
 app = Flask(__name__)
 
-input_data = "template"
+input_data = "input_data"
 pre_process_data = "pre_process_data"
 
 @app.route("/api/getLetters", methods=["POST"])
